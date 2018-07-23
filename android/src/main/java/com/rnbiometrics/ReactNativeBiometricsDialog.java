@@ -66,7 +66,7 @@ public class ReactNativeBiometricsDialog extends DialogFragment implements React
         biometricAuthenticationHelper = new ReactNativeBiometricsHelper(
                 activity.getSystemService(FingerprintManager.class),
                 (ImageView) view.findViewById(R.id.fingerprint_icon),
-                message
+                message,
                 //(TextView) view.findViewById(R.id.fingerprint_status),
                 this
         );
