@@ -23,6 +23,7 @@ public class ReactNativeBiometricsHelper extends FingerprintManager.Authenticati
     private final TextView errorTextView;
     private final ReactNativeBiometricsCallback callback;
     private CancellationSignal cancellationSignal;
+    private final String defaultMessage;
 
     private boolean selfCancelled;
 
@@ -32,6 +33,7 @@ public class ReactNativeBiometricsHelper extends FingerprintManager.Authenticati
         this.icon = icon;
         this.errorTextView = errorTextView;
         this.callback = callback;
+        this.defaultMessage = errorTextView.getText().toString();
     }
 
     public void startListening(FingerprintManager.CryptoObject cryptoObject) {
@@ -76,10 +78,10 @@ public class ReactNativeBiometricsHelper extends FingerprintManager.Authenticati
 
     @Override
     public void onAuthenticationSucceeded(final FingerprintManager.AuthenticationResult result) {
-        errorTextView.removeCallbacks(resetErrorTextRunnable);
+        //errorTextView.removeCallbacks(resetErrorTextRunnable);
         icon.setImageResource(R.drawable.ic_fingerprint_success);
-        errorTextView.setTextColor(errorTextView.getResources().getColor(R.color.success_color, null));
-        errorTextView.setText(errorTextView.getResources().getString(R.string.fingerprint_recognized));
+        //errorTextView.setTextColor(errorTextView.getResources().getColor(R.color.success_color, null));
+        //errorTextView.setText(errorTextView.getResources().getString(R.string.fingerprint_recognized));
         icon.postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -90,18 +92,18 @@ public class ReactNativeBiometricsHelper extends FingerprintManager.Authenticati
 
     private void showError(CharSequence error) {
         icon.setImageResource(R.drawable.ic_fingerprint_error);
-        errorTextView.setText(error);
-        errorTextView.setTextColor(errorTextView.getResources().getColor(R.color.warning_color, null));
-        errorTextView.removeCallbacks(resetErrorTextRunnable);
-        errorTextView.postDelayed(resetErrorTextRunnable, ERROR_TIMEOUT_MILLIS);
+        //errorTextView.setText(error);
+        //errorTextView.setTextColor(errorTextView.getResources().getColor(R.color.warning_color, null));
+        //errorTextView.removeCallbacks(resetErrorTextRunnable);
+        //errorTextView.postDelayed(resetErrorTextRunnable, ERROR_TIMEOUT_MILLIS);
     }
 
     private Runnable resetErrorTextRunnable = new Runnable() {
         @Override
         public void run() {
-            errorTextView.setTextColor(
-                    errorTextView.getResources().getColor(R.color.hint_color, null));
-            errorTextView.setText(errorTextView.getResources().getString(R.string.fingerprint_hint));
+            //errorTextView.setTextColor(
+            //        errorTextView.getResources().getColor(R.color.hint_color, null));
+            //errorTextView.setText(defaultMessage);
             icon.setImageResource(R.drawable.ic_fp_40px);
         }
     };

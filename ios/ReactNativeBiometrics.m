@@ -7,6 +7,7 @@
 #import "ReactNativeBiometrics.h"
 #import <LocalAuthentication/LocalAuthentication.h>
 #import <Security/Security.h>
+#import "UIView+Toast.h"
 
 @implementation ReactNativeBiometrics
 
@@ -70,6 +71,7 @@ RCT_EXPORT_METHOD(createKeys: (NSString *)promptMessage resolver:(RCTPromiseReso
           reject(@"storage_error", message, nil);
         }
       } else {
+        [self makeToast:@"Touch ID Sign In Failed for Seculet"];
         reject(@"fingerprint_error", @"Could not confirm fingerprint", nil);
       }
     }];
