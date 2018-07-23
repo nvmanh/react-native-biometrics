@@ -34,6 +34,7 @@
         android:paddingTop="4dp"
         android:paddingBottom="4dp"
         android:gravity="bottom|center"
+        android:orientation="vertical"          
         style="?android:attr/buttonBarStyle">
 
         <Button
