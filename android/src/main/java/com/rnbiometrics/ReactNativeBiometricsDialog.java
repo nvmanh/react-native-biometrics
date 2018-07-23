@@ -50,7 +50,7 @@ public class ReactNativeBiometricsDialog extends DialogFragment implements React
         //getDialog().setTitle(title);
         View view = inflater.inflate(R.layout.fingerprint_dialog_container, container, false);
         TextView title = (TextView)view.findViewById(R.id.fingerprint_title);
-        title.setText(activity.getString(R.string.touch_id_title, activity.getString(R.string.app_name)));
+        title.setText(activity.getString(R.string.touch_id_title, "Seculet"));
         TextView message = (TextView)view.findViewById(R.id.fingerprint_message);
         message.setText(title);
         cancelButton = (Button) view.findViewById(R.id.cancel_button);
