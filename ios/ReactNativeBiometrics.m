@@ -71,7 +71,7 @@ RCT_EXPORT_METHOD(createKeys: (NSString *)promptMessage resolver:(RCTPromiseReso
           reject(@"storage_error", message, nil);
         }
       } else {
-        [self makeToast:@"Touch ID Sign In Failed for Seculet"];
+//         [self makeToast:@"Touch ID Sign In Failed for Seculet"];
         reject(@"fingerprint_error", @"Could not confirm fingerprint", nil);
       }
     }];
