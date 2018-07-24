@@ -154,7 +154,7 @@ public class ReactNativeBiometrics extends ReactContextBaseJavaModule {
 
             @Override
             public void onError() {
-                Toast.makeText(getCurrentActivity(), "Touch ID Sign In Failed for \"Seculet\"", Toast.LENGTH_SHORT).show();
+//                 Toast.makeText(getCurrentActivity(), "Touch ID Sign In Failed for \"Seculet\"", Toast.LENGTH_SHORT).show();
                 promise.reject("error detecting fingerprint", "error detecting fingerprint");
             }
         };
