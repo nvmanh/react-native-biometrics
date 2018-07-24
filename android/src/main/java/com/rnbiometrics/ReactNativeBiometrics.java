@@ -189,12 +189,21 @@ public class ReactNativeBiometrics extends ReactContextBaseJavaModule {
 
             @Override
             public void onCancel() {
-                promise.reject("User cancelled fingerprint authorization", "User cancelled fingerprint authorization");
+                try {
+                    promise.reject("User cancelled fingerprint authorization", "User cancelled fingerprint authorization");
+                } catch (Exception e) {
+                    //promise.reject("error creating signature: " + e.getMessage(), "error creating signature");
+                }
+                //promise.reject("User cancelled fingerprint authorization", "User cancelled fingerprint authorization");
             }
 
             @Override
             public void onError() {
-                promise.reject("error generating public private keys" , "error generating public private keys");
+                try {
+                    promise.reject("error generating public private keys" , "error generating public private keys");
+                } catch (Exception e) {
+                    //promise.reject("error creating signature: " + e.getMessage(), "error creating signature");
+                }
             }
         };
     }
